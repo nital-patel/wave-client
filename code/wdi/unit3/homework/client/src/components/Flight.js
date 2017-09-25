@@ -5,15 +5,13 @@ class Flight extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            flightno: this.props.flightData.onwardflights[0].airline,
-            arrtime: this.props.flightData.onwardflights[0].flightcode,
+            flightno: this.props.flightData.onwardflights[0].flightcode,
+            arrtime: this.props.flightData.onwardflights[0].arrtime,
             origin: this.props.flightData.onwardflights[0].origin,
             depa_time: this.props.flightData.onwardflights[0].deptime,
             duration: this.props.flightData.onwardflights[0].duration,
             destination: this.props.flightData.onwardflights[0].destination,
             airline: this.props.flightData.onwardflights[0].airline,
-            totalfare: this.props.flightData.onwardflights[0].totalfare,
-            seatsAvailable: this.props.flightData.onwardflights[0].seatsAvailable,
             fireRedirect:false
         };
         this.handleSumbit= this.handleSumbit.bind(this);
@@ -21,17 +19,15 @@ class Flight extends Component {
     handleSumbit(e){
         e.preventDefault();
         console.log('submit started')
-        console.log(this.props)
+        //console.log(this.props)
         this.setState({
-            flightno: this.props.flightData.onwardflights[0].airline,
-            arrtime: this.props.flightData.onwardflights[0].flightcode,
+            flightno: this.props.flightData.onwardflights[0].flightcode,
+            arrtime: this.props.flightData.onwardflights[0].arrtime,
             origin: this.props.flightData.onwardflights[0].origin,
             depa_time: this.props.flightData.onwardflights[0].deptime,
             duration: this.props.flightData.onwardflights[0].duration,
             destination: this.props.flightData.onwardflights[0].destination,
             airline: this.props.flightData.onwardflights[0].airline,
-            totalfare: this.props.flightData.onwardflights[0].totalfare,
-            seatsAvailable: this.props.flightData.onwardflights[0].seatsAvailable
         })
        axios
             .post(`http://localhost:3000/flight`,{
@@ -41,9 +37,7 @@ class Flight extends Component {
                 depa_time: this.state.depa_time,
                 duration: this.state.duration,
                 destination: this.state.destination,
-                airline: this.state.airline,
-                totalfare: this.state.totalfare,
-                seatsAvailable: this.state.seatsAvailable
+                airline: this.state.airline
             })
             .then(res => {
                 console.log(res);
@@ -57,7 +51,7 @@ class Flight extends Component {
     }
     render() {
         const flight = this.props.flightData.onwardflights[0];
-        console.log(this.state)
+        //console.log(this.state)
         return (
             <div className="flight">
                 <div className="">
