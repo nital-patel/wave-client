@@ -87,7 +87,7 @@ class FlightSearch extends Component{
                     {this.state.hotelSelection}
                 </div>
                 <div className='FlightSearch item'>
-                    <form>
+                    <form onSubmit={ (e) => this.submitHandler(e) }>
 
                         <div>
                             <h1>Looking for a flight?</h1>
@@ -140,7 +140,7 @@ class FlightSearch extends Component{
                         </div>
                         {this.displayHotel()}
                         <div className='section'>
-                            <button onClick={this.submitHandler}>Find my Flight!</button>
+                            <input type='submit' value='bitches' />
                         </div>
 
                     </form>
