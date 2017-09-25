@@ -140,7 +140,7 @@ class FlightSearch extends Component{
                         </div>
                         {this.displayHotel()}
                         <div className='section'>
-                            <input type='submit' value='bitches' />
+                            <input type='submit' value='Search Trip' />
                         </div>
 
                     </form>
