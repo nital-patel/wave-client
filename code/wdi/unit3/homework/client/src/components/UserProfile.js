@@ -3,6 +3,7 @@ import UserProfileData from './UserProfileData';
 import axios from 'axios'
 import { withRouter } from 'react-router';
 
+
 class UserProfile extends Component{
   constructor(){
     super();
@@ -12,9 +13,12 @@ class UserProfile extends Component{
   }
 
   componentDidMount(){
-    axios.get('http://localhost:3000/trip')
+    axios.get('http://localhost:3000/trip', { xhrFields: {
+        withCredentials: true
+    },
+        crossDomain: true,})
       .then(res => {
-        console.log('got something back: ', res)
+
         this.setState({
           tripData: res.data.data,
         })

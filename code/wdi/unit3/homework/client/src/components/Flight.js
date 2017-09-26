@@ -12,6 +12,7 @@ class Flight extends Component {
             duration: this.props.flightData.onwardflights[0].duration,
             destination: this.props.flightData.onwardflights[0].destination,
             airline: this.props.flightData.onwardflights[0].airline,
+            totalfare: this.props.flightData.onwardflights[0].fare.totalfare,
             fireRedirect:false
         };
         this.handleSumbit= this.handleSumbit.bind(this);
@@ -28,6 +29,7 @@ class Flight extends Component {
             duration: this.props.flightData.onwardflights[0].duration,
             destination: this.props.flightData.onwardflights[0].destination,
             airline: this.props.flightData.onwardflights[0].airline,
+            totalfare: this.props.flightData.onwardflights[0].fare.totalfare
         })
        axios
             .post(`http://localhost:3000/flight`,{
@@ -37,7 +39,8 @@ class Flight extends Component {
                 depa_time: this.state.depa_time,
                 duration: this.state.duration,
                 destination: this.state.destination,
-                airline: this.state.airline
+                airline: this.state.airline,
+                totalfare: this.state.totalfare
             })
             .then(res => {
                 console.log(res);
