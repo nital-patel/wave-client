@@ -58,7 +58,7 @@ class Login extends Component{
       }
 
         render(){
-          console.log(this.state)
+          //console.log(this.state)
         return(
             <div className='login item section'>
                 <h2>Login</h2>
