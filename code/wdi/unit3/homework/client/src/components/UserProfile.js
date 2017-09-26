@@ -27,11 +27,18 @@ class UserProfile extends Component{
   renderUserflight() {
     if(this.state.tripDataLoaded){
       console.log(this.state.tripData)
-      return this.state.tripData.map(trip => {
-        return (
-          <UserProfileData key={trip.id} trip={trip} />
-          )
-      });
+      return(
+        <div>
+          <UserProfileData trips={this.state.tripData.trip}/>
+        </div>
+      )
+      debugger;
+      // return this.state.tripData.trip.map(trip => {
+      //   return (
+      //     <UserProfileData key={trip.id} trip={trip} />
+      //     )
+      // });
+
   }}
 
   render(){
@@ -40,7 +47,7 @@ class UserProfile extends Component{
           <h1>Hi there</h1>
           
           {this.renderUserflight()}
-          <button type='add'>add</button>
+          <button type='edit'>Edit</button>
         <button type='submit'>delete</button>
         </div>
 
