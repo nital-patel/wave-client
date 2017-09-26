@@ -44,15 +44,16 @@ class Register extends Component{
 
     render() {
         return (
-            <div className='login item section'>
-                <h2>Register</h2>
+            <div className='container'>
+
                 {/* nital, put in an action that is the route you want to call the auth methods on */}
-                <form onSubmit={this.handleFormSubmit}>
-                    <input type="text" name='username' placeholder='username' value={this.state.username}onChange={this.handleInputChange}></input>
-                    <input type="text" name='email' placeholder='email' value={this.state.email}onChange={this.handleInputChange}></input>
-                    <input type="password" name='password' placeholder='password' value={this.state.password}onChange={this.handleInputChange}></input>
-                    <input type="password" name='conformpassword' placeholder='conformpassword' value={this.state.password}onChange={this.handleInputChange}></input>
-                    <button type='submit'>Register</button>
+                <form className="login-form" onSubmit={this.handleFormSubmit}>
+                <h2 className="login">Register</h2>
+                    <input  className="form-input" type="text" name='username' placeholder='username' value={this.state.username}onChange={this.handleInputChange}></input>
+                    <input  className="form-input" type="text" name='email' placeholder='email' value={this.state.email}onChange={this.handleInputChange}></input>
+                    <input  className="form-input" type="password" name='password' placeholder='password' value={this.state.password}onChange={this.handleInputChange}></input>
+                    <input  className="form-input" type="password" name='conformpassword' placeholder='conformpassword' value={this.state.password}onChange={this.handleInputChange}></input>
+                    <button className="btn" type='submit'>Register</button>
                 </form>
             </div>
         );
