@@ -16,12 +16,14 @@ class Trip extends Component{
             hotelId:null,
             hotelCity:null,
             hotelName:null,
+            tripName:null,
         }
         this.tripHasFlight=this.tripHasFlight.bind(this);
         this.tripHasHotel=this.tripHasHotel.bind(this);
         this.handleAdd=this.handleAdd.bind(this);
         this.handleHotel=this.handleHotel.bind(this);
-        this.handleSumbit=this.handleSumbit.bind(this)
+        this.handleSumbit=this.handleSumbit.bind(this);
+        this.changeHandler=this.changeHandler.bind(this);
     }
     handleAdd(a,b,c,d,e,f,g){
         this.setState({
@@ -61,26 +63,35 @@ class Trip extends Component{
             )
         }
     }
+    changeHandler(event){
+        event.preventDefault();
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;  
+        this.setState({
+            [name]:value
+        })    
+    }
     handleSumbit(e){
         e.preventDefault();
         //this works
-        // axios
-        //     .post(`http://localhost:3000/flight`,{
-        //         flightno: this.state.flightno,
-        //         arrtime: this.state.arrtime,
-        //         origin: this.state.origin,
-        //         depa_time: this.state.depa_time,
-        //         duration: this.state.duration,
-        //         destination: this.state.destination,
-        //         airline: this.state.airline
-        //     }).catch(err => {
-        //         console.log('error!', err)
-        //     })
+        axios
+            .post(`http://localhost:3000/flight`,{
+                flightno: this.state.flightno,
+                arrtime: this.state.arrtime,
+                origin: this.state.origin,
+                depa_time: this.state.depa_time,
+                duration: this.state.duration,
+                destination: this.state.destination,
+                airline: this.state.airline
+            }).catch(err => {
+                console.log('error!', err)
+            })
         
         axios.post(`http://localhost:3000/trip`,{
             flightno:parseInt(this.state.flightno),
             userId:1,
-            tripName:'vacation',
+            tripName:this.state.tripName,
             hotelId:this.state.hotelId
         }).catch(err=>{
             console.log(err)
@@ -89,6 +100,7 @@ class Trip extends Component{
     render(){
         return(
             <div className='trip'>
+                
                 <FlightDisplay name='depart' depAirport={this.props.depAirport} arrAirport={this.props.arrAirport} date={this.props.date} 
                     tripFlight={[
                     {flightno:this.state.flightno},
@@ -103,15 +115,16 @@ class Trip extends Component{
                 {/* <FlightDisplay name='return'  depAirport={this.props.depAirport} arrAirport={this.props.arrAirport} date={this.props.retDate}/> */}
                 <HotelDisplay hotelData={this.state.hotelData} handleHotel={this.handleHotel} hotelSelection={this.props.hotelSelection} tripHotel={[{hotelCity:this.state.hotelCity},{hotelId:this.state.hotelId},{hotelName:this.state.hotelName}]}/>
             <div className='tripSubmit'>
+            <p>{this.state.tripName}</p>
             <form onSubmit={(e) => this.handleSumbit(e)}>
-                <input name='tripName' placeholder='Name Your Trip'/>
+                <input name='tripName' placeholder='Name Your Trip' onChange={this.changeHandler} />
                 {this.tripHasFlight()}
                 {this.tripHasHotel()}
                 <input type='hidden' name='flightno' value={this.state.flightno}/>
                 <input type='hidden' name='hotelId' value={this.state.hotelId}/>
                 <input type='hidden' name='userId' value='1'/>
                     <button type='submit'></button>
-                 </form>
+                </form>
             </div>
             </div>
         )
