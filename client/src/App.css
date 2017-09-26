@@ -1,0 +1,134 @@
+.App {
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #E6F0F4;
+  height: 993px;
+  width: 60%;
+  margin: 0 auto;
+  border: 25px solid white;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  display: inline;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.item{
+  border: 1px solid black;
+  width: 60%;
+  margin-left:20%;
+}
+.section{
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
+.navBar {
+  margin: 2px 4px -20px 4px;
+  padding: 10px 20px 10px 0px;
+  font-size: 300%;
+  text-align: right;
+  font-family: 'Parisienne', cursive;
+}
+.background {
+  background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/04/Mobile-Ocean-Wallpapers-HD.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 1000px;
+  /* margin-top: -60px; */
+}
+
+.airport {
+  text-transform: uppercase;
+}
+
+input {
+  margin: 10px 10px 10px 10px;
+}
+
+.icon {
+  height: 100px;
+  width: 100px;
+}
+
+.title {
+  padding-bottom: 50px
+}
+.container {
+  width: 450px;
+  margin: 0 auto;
+  display: block;
+
+}
+.login-form {
+  border: 5px solid #d8dee2;
+  border-radius: 5px;
+  padding: 20px;;
+  background-color: #ffffff;
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+.h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+}
+.login {
+  font-weight: 200;
+  color: #565656;
+  margin: 0 auto 45px;
+  font-size: 35px;
+  line-height: 38px;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 30px;
+}
+.form-input {
+  width: 80%;
+  margin: 20px auto;
+  border: 2px solid #e7e7e7;
+  background: #fcfcfc;
+  padding: 15px;
+  display: block;
+  font-size: 18px;
+  text-align: left;
+  border-radius: 3px;
+  height: auto;
+  line-height: 30px;
+}
+.btn {
+  width: 100%;
+  margin: 20px 0;
+  border: 2px solid #e7e7e7;
+  background: #15CD72;
+  padding: 15px;
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 3px;
+  line-height: 30px;
+  cursor: pointer;
+  color: #ffffff;
+
+
+}
