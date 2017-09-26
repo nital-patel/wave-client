@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import HotelSearch from './HotelSearch';
-import FlightDisplay from './FlightDisplay';
-import HotelDisplay from './HotelDisplay'
-
+// import FlightDisplay from './FlightDisplay';
+// import HotelDisplay from './HotelDisplay';
+import Trip from './Trip'
 class FlightSearch extends Component{
     constructor(){
         super();
@@ -30,7 +30,7 @@ class FlightSearch extends Component{
     }
     
     searchFullCheck(){
-        if(this.state.depAirport && this.state.arrAirport && this.state.depDate && this.state.returnDate){
+        if(this.state.depAirport && this.state.arrAirport && this.state.depDate){
             this.setState({
                 searchFull:true
             });
@@ -49,9 +49,7 @@ class FlightSearch extends Component{
         if(this.state.searchFull){
             return(
                 <div>
-                    <FlightDisplay name='depart' depAirport={this.state.depAirport} arrAirport={this.state.arrAirport} date={this.state.depDate}/>
-                    <FlightDisplay name='return' depAirport={this.state.depAirport} arrAirport={this.state.arrAirport} date={this.state.returnDate}/>
-                    <HotelDisplay hotelSelection={this.state.hotelSelection}/>
+                    <Trip depAirport={this.state.depAirport} arrAirport={this.state.arrAirport} date={this.state.depDate} retDate={this.state.returnDate} hotelSelection={this.state.hotelSelection}/>
                 </div>
             )
         }
