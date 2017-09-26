@@ -76,10 +76,11 @@ class Trip extends Component{
         //     }).catch(err => {
         //         console.log('error!', err)
         //     })
+        
         axios.post(`http://localhost:3000/trip`,{
-            flightno:this.state.flightno,
+            flightno:parseInt(this.state.flightno),
             userId:1,
-            tripName:"vacation",
+            tripName:'vacation',
             hotelId:this.state.hotelId
         }).catch(err=>{
             console.log(err)
