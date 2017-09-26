@@ -26,11 +26,12 @@ class Login extends Component{
             [name]: value,
         });
     }
-
+    getUser(){
+        this.props.getUser(this.state.username)
+    }
       handleFormSubmit(e) {
           e.preventDefault();
-
-
+          this.getUser()
           axios
               .post('http://localhost:3000/auth/login', {
                   username: this.state.username,
@@ -43,7 +44,7 @@ class Login extends Component{
                       auth: true,
 
               });
-                  this.handleRedirect();
+                  //this.handleRedirect();
               }
       })
              .catch(err => console.log(err));

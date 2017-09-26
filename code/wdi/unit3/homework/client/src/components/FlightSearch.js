@@ -4,8 +4,8 @@ import HotelSearch from './HotelSearch';
 // import HotelDisplay from './HotelDisplay';
 import Trip from './Trip'
 class FlightSearch extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             hotelSearchDisplay:false,
             depAirport:null,
@@ -49,7 +49,7 @@ class FlightSearch extends Component{
         if(this.state.searchFull){
             return(
                 <div>
-                    <Trip depAirport={this.state.depAirport} arrAirport={this.state.arrAirport} date={this.state.depDate} retDate={this.state.returnDate} hotelSelection={this.state.hotelSelection}/>
+                    <Trip user={this.props.user} depAirport={this.state.depAirport} arrAirport={this.state.arrAirport} date={this.state.depDate} retDate={this.state.returnDate} hotelSelection={this.state.hotelSelection}/>
                 </div>
             )
         }

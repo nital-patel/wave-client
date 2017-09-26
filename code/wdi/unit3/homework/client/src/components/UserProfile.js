@@ -4,15 +4,15 @@ import axios from 'axios'
 import { withRouter } from 'react-router';
 
 class UserProfile extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
         tripData: null,
     }
   }
-
+//working just need to display
   componentDidMount(){
-    axios.get('http://localhost:3000/trip')
+    axios.get(`http://localhost:3000/trip/${this.props.user}`)
       .then(res => {
         console.log('got something back: ', res)
         this.setState({
@@ -33,7 +33,7 @@ class UserProfile extends Component{
     return(
         <div className="userflight-list">
           <h1>Hi there</h1>
-          {/*this.renderUserflight()*/}
+          {/* {this.renderUserflight()} */}
           <button type='add'>add</button>
         <button type='submit'>delete</button>
         </div>

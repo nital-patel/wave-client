@@ -75,9 +75,10 @@ class Trip extends Component{
     handleSumbit(e){
         e.preventDefault();
         //this works
+        console.log(this.props.user)
         axios
             .post(`http://localhost:3000/flight`,{
-                flightno: this.state.flightno,
+                flightno: parseInt(this.state.flightno),
                 arrtime: this.state.arrtime,
                 origin: this.state.origin,
                 depa_time: this.state.depa_time,
@@ -90,7 +91,7 @@ class Trip extends Component{
         
         axios.post(`http://localhost:3000/trip`,{
             flightno:parseInt(this.state.flightno),
-            userId:1,
+            userId:this.props.user,
             tripName:this.state.tripName,
             hotelId:this.state.hotelId
         }).catch(err=>{
