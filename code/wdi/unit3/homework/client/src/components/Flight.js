@@ -45,8 +45,8 @@ class Flight extends Component {
     }
     handleAdd(){
         this.props.handleAdd(
-            this.state.arrtime,
             this.state.flightno,
+            this.state.arrtime,
             this.state.origin,
             this.state.depa_time,
             this.state.duration,

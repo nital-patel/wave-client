@@ -63,21 +63,27 @@ class Trip extends Component{
     }
     handleSumbit(e){
         e.preventDefault();
-        axios
-            .post(`http://localhost:3000/flight`,{
-                flightno: this.state.flightno,
-                arrtime: this.state.arrtime,
-                origin: this.state.origin,
-                depa_time: this.state.depa_time,
-                duration: this.state.duration,
-                destination: this.state.destination,
-                airline: this.state.airline
-            }).catch(err => {
-                console.log('error!', err)
-            })
-        // axios.post(`http://localhost:300/trip`),{
-
-        // }
+        //this works
+        // axios
+        //     .post(`http://localhost:3000/flight`,{
+        //         flightno: this.state.flightno,
+        //         arrtime: this.state.arrtime,
+        //         origin: this.state.origin,
+        //         depa_time: this.state.depa_time,
+        //         duration: this.state.duration,
+        //         destination: this.state.destination,
+        //         airline: this.state.airline
+        //     }).catch(err => {
+        //         console.log('error!', err)
+        //     })
+        axios.post(`http://localhost:3000/trip`,{
+            flightno:this.state.flightno,
+            userId:1,
+            tripName:"vacation",
+            hotelId:this.state.hotelId
+        }).catch(err=>{
+            console.log(err)
+        }) 
     }
     render(){
         return(
@@ -96,9 +102,13 @@ class Trip extends Component{
                 {/* <FlightDisplay name='return'  depAirport={this.props.depAirport} arrAirport={this.props.arrAirport} date={this.props.retDate}/> */}
                 <HotelDisplay hotelData={this.state.hotelData} handleHotel={this.handleHotel} hotelSelection={this.props.hotelSelection} tripHotel={[{hotelCity:this.state.hotelCity},{hotelId:this.state.hotelId},{hotelName:this.state.hotelName}]}/>
             <div className='tripSubmit'>
+            <form onSubmit={(e) => this.handleSumbit(e)}>
+                <input name='tripName' placeholder='Name Your Trip'/>
                 {this.tripHasFlight()}
                 {this.tripHasHotel()}
-                <form onSubmit={(e) => this.handleSumbit(e)}>
+                <input type='hidden' name='flightno' value={this.state.flightno}/>
+                <input type='hidden' name='hotelId' value={this.state.hotelId}/>
+                <input type='hidden' name='userId' value='1'/>
                     <button type='submit'></button>
                  </form>
             </div>
